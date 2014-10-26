@@ -1,0 +1,23 @@
+{
+    "name": "silber/sanitizer",
+    "description": "Sanitize form/JSON data",
+    "authors": [
+        {
+            "name": "Joseph Silber",
+            "email": "contact@josephsilber.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "illuminate/container": "~4.2",
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Silber\\Sanitizer\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
