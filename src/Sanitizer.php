@@ -346,4 +346,17 @@ class Sanitizer {
 		}
 	}
 
+	/**
+	 * Trim off whitespace from both ends of a given string.
+	 *
+	 * @param  mixed  $value
+	 * @return string
+	 */
+	protected function trimSanitizer($value)
+	{
+		if ( ! is_string($value)) return $value;
+
+		return trim($value);
+	}
+
 }
