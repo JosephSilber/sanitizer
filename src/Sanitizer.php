@@ -1,5 +1,6 @@
 <?php namespace Silber\Sanitizer;
 
+use Closure;
 use Exception;
 use ArrayAccess;
 
@@ -172,7 +173,7 @@ class Sanitizer {
 	 */
 	protected function runRule(array &$data, $key, $rule)
 	{
-		list($rule, $parameters) = $this->parseStringRule($rule);
+		list($rule, $parameters) = $this->parseRule($rule);
 
 		array_unshift($parameters, $data[$key]);
 
@@ -184,11 +185,13 @@ class Sanitizer {
 	/**
 	 * Parse a string based rule.
 	 *
-	 * @param  string  $rule
+	 * @param  mixed  $rule
 	 * @return array
 	 */
-	protected function parseStringRule($rule)
+	protected function parseRule($rule)
 	{
+		if ( ! is_string($rule)) return [$rule, []];
+
 		$parameters = [];
 
 		if (strpos($rule, ':') !== false)
@@ -209,6 +212,8 @@ class Sanitizer {
 	 */
 	protected function getSanitizer($key)
 	{
+		if ($key instanceof Closure) return $key;
+
 		if (isset($this->extensions[$key]))
 		{
 			return $this->extensions[$key];
