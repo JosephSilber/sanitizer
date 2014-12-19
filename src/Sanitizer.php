@@ -252,7 +252,7 @@ class Sanitizer {
 	 * @param  mixed  $value
 	 * @return string
 	 */
-	protected function alphaSanitizer($value)
+	public function alphaSanitizer($value)
 	{
 		$value = $this->stringSanitizer($value);
 
@@ -265,7 +265,7 @@ class Sanitizer {
 	 * @param  mixed   $value
 	 * @return string
 	 */
-	protected function alphaDashSanitizer($value)
+	public function alphaDashSanitizer($value)
 	{
 		$value = $this->stringSanitizer($value);
 
@@ -278,7 +278,7 @@ class Sanitizer {
 	 * @param  mixed   $value
 	 * @return string
 	 */
-	protected function alphaNumSanitizer($value)
+	public function alphaNumSanitizer($value)
 	{
 		$value = $this->stringSanitizer($value);
 
@@ -291,7 +291,7 @@ class Sanitizer {
 	 * @param  mixed  $value
 	 * @return array
 	 */
-	protected function arraySanitizer($value)
+	public function arraySanitizer($value)
 	{
 		return (array) $value;
 	}
@@ -302,7 +302,7 @@ class Sanitizer {
 	 * @param  mixed  $value
 	 * @return boolean
 	 */
-	protected function booleanSanitizer($value)
+	public function booleanSanitizer($value)
 	{
 		return (bool) $value;
 	}
@@ -313,7 +313,7 @@ class Sanitizer {
 	 * @param  mixed  $value
 	 * @return string
 	 */
-	protected function numericSanitizer($value)
+	public function numericSanitizer($value)
 	{
 		$value = $this->stringSanitizer($value);
 
@@ -326,7 +326,7 @@ class Sanitizer {
 	 * @param  mixed  $value
 	 * @return int
 	 */
-	protected function numberSanitizer($value)
+	public function numberSanitizer($value)
 	{
 		return (int) $this->numericSanitizer($value);
 	}
@@ -337,7 +337,7 @@ class Sanitizer {
 	 * @param  mixed  $value
 	 * @return float
 	 */
-	protected function floatSanitizer($value)
+	public function floatSanitizer($value)
 	{
 		$value = $this->stringSanitizer($value);
 
@@ -350,7 +350,7 @@ class Sanitizer {
 	 * @param  mixed  $value
 	 * @return string
 	 */
-	protected function stringSanitizer($value)
+	public function stringSanitizer($value)
 	{
 		try
 		{
@@ -370,7 +370,7 @@ class Sanitizer {
 	 * @param  mixed  $value
 	 * @return string
 	 */
-	protected function trimSanitizer($value)
+	public function trimSanitizer($value)
 	{
 		if ( ! is_string($value)) return $value;
 
