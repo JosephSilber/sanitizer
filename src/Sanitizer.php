@@ -303,6 +303,19 @@ class Sanitizer {
 	}
 
 	/**
+	 * Remove all non-numeric characters.
+	 *
+	 * @param  mixed  $value
+	 * @return string
+	 */
+	protected function numericSanitizer($value)
+	{
+		$value = $this->stringSanitizer($value);
+
+		return preg_replace('~[^\d]~', '', $value);
+	}
+
+	/**
 	 * Convert a value to a number.
 	 *
 	 * @param  mixed  $value
@@ -314,16 +327,16 @@ class Sanitizer {
 	}
 
 	/**
-	 * Remove all non-numeric characters.
+	 * Convert a value to a float.
 	 *
 	 * @param  mixed  $value
-	 * @return string
+	 * @return float
 	 */
-	protected function numericSanitizer($value)
+	protected function floatSanitizer($value)
 	{
 		$value = $this->stringSanitizer($value);
 
-		return preg_replace('~[^\d]~', '', $value);
+		return (float) preg_replace('~[^\d.]~', '', $value);
 	}
 
 	/**
