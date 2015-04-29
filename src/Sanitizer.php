@@ -159,7 +159,7 @@ class Sanitizer {
 
 		foreach ($ruleset as $rule)
 		{
-			if ($key == 'nullable') continue;
+			if ($rule == 'nullable') continue;
 
 			$this->runRule($data, $key, $rule);
 		}
